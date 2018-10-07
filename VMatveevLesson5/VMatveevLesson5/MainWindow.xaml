@@ -1,0 +1,22 @@
+﻿<Window x:Class="VMatveevLesson5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VMatveevLesson5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <ListView x:Name="ListViewTotal" ItemsSource="{Binding workersList, Mode=TwoWay}" HorizontalAlignment="Left" Height="346" Margin="10,24,0,0" VerticalAlignment="Top" Width="772">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Employee.FirstName}" Header="FirstName"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Employee.LastName}" Header="LastName"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Department.DepartmentName}" Header="Department"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="AddRecord" Content="AddRecord" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="90" Click="AddEmployee_Click"/>
+        <Button x:Name="EditRecord" Content="EditRecod" HorizontalAlignment="Left" Margin="117,375,0,0" VerticalAlignment="Top" Width="90" Click="EditEmployee_Click"/>
+    </Grid>
+</Window>
