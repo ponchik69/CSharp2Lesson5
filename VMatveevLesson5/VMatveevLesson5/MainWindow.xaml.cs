@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Controls.Primitives;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,7 @@ namespace VMatveevLesson5
     public partial class MainWindow : Window
     {
         public ObservableCollection<Worker> workersList { get; set; }
-        public EList eList = new EList();
-        public DList dList = new DList();
+        public Organizattion organizattion = new Organizattion();
         Employee employee;
         Department department;
         Worker worker;
@@ -36,11 +36,11 @@ namespace VMatveevLesson5
 
             workersList = new ObservableCollection<Worker>();
 
-            for (int i = 0; i < eList.employeeList.Count; i++)
+            for (int i = 0; i < organizattion.GetEmployeeListCount(); i++)
             {
 
-                employee = eList.employeeList[i];
-                department = dList.departmentList[rnd.Next(0, dList.departmentList.Count)];
+                employee = organizattion.GetEmployeeListItem(i);
+                department = organizattion.GetDepartmentListItem(rnd.Next(0, organizattion.GetDepartmentListCount()));
                 worker = new Worker();
                 worker.Employee = employee;
                 worker.Department = department;
@@ -56,21 +56,30 @@ namespace VMatveevLesson5
             editEmployee.Show();
         }
 
-        private void AddEmployee_Click(object sender, RoutedEventArgs e)
+        private void AddRandom_Click(object sender, RoutedEventArgs e)
         {
             employee = new Employee();
             employee.FirstName = MegaGenerator.GetEmployeeName();
             employee.LastName = MegaGenerator.GetEmployeeLastname();
-            eList.employeeList.Add(employee);
+            employee.UUID = organizattion.GetEmployeeListCount();
+            organizattion.AddEmployeeListItem(employee);
 
             department = new Department();
             department.DepartmentName = MegaGenerator.GetDepartamentName();
-            dList.departmentList.Add(department);
+            organizattion.AddDepartmentListItem(department);
 
             worker = new Worker();
             worker.Department = department;
             worker.Employee = employee;
             workersList.Add(worker);
+        }
+
+        private void ListViewTotal_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+//            var item = ListViewTotal.SelectedItem as Track;
+            Worker item = (Worker)ListViewTotal.SelectedItem;
+            EditEmployee editEmployee = new EditEmployee(this, item);
+            editEmployee.Show();
         }
     }
 }
