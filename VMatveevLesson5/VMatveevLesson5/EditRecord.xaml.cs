@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls.Primitives;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +21,34 @@ namespace VMatveevLesson5
     public partial class EditEmployee : Window
     {
         private MainWindow parent;
+        List<Employee> employees;
+        List<Department> departments;
 
         public EditEmployee(MainWindow mainForm)
         {
             parent = mainForm;
+
             InitializeComponent();
 
-            EmployeeComboBox.ItemsSource = parent.eList.employeeList;
-            DepartamentComboBox.ItemsSource = parent.dList.departmentList;
+            EmployeeComboBox.ItemsSource = parent.organizattion.eList.employeeList;
+            DepartamentComboBox.ItemsSource = parent.organizattion.dList.departmentList;
 
+        }
+
+        public EditEmployee(MainWindow mainForm, Worker item)
+        {
+            parent = mainForm;
+            employees = new List<Employee>();
+            departments = new List<Department>();
+            employees.Add(item.Employee);
+            departments = parent.organizattion.dList.departmentList;
+
+            InitializeComponent();
+            
+
+            EmployeeComboBox.ItemsSource = employees;
+            EmployeeComboBox.SelectedIndex = 0;
+            DepartamentComboBox.ItemsSource = departments;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)

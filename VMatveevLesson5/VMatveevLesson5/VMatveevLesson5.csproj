@@ -59,6 +59,7 @@
       <DependentUpon>EditRecord.xaml</DependentUpon>
     </Compile>
     <Compile Include="MegaGenerator.cs" />
+    <Compile Include="Organizattion.cs" />
     <Compile Include="Worker.cs" />
     <Page Include="EditRecord.xaml">
       <SubType>Designer</SubType>
