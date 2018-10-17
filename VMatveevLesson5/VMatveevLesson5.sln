@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMatveevLesson5", "VMatveevLesson5\VMatveevLesson5.csproj", "{AFC0D930-371A-4E66-A5F8-FB26C8514A6E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AFCF3FE-5334-4086-819F-5572D770EDC1} = {4AFCF3FE-5334-4086-819F-5572D770EDC1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFApp", "WCFApp\WCFApp.csproj", "{4AFCF3FE-5334-4086-819F-5572D770EDC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{AFC0D930-371A-4E66-A5F8-FB26C8514A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFC0D930-371A-4E66-A5F8-FB26C8514A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFC0D930-371A-4E66-A5F8-FB26C8514A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AFCF3FE-5334-4086-819F-5572D770EDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AFCF3FE-5334-4086-819F-5572D770EDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AFCF3FE-5334-4086-819F-5572D770EDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AFCF3FE-5334-4086-819F-5572D770EDC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,5 +10,16 @@ namespace VMatveevLesson5
         public Employee Employee { get; set; }
         public Department Department { get; set; }
 
+        public Worker(int id, Employee employee, Department department)
+        {
+            this.Id = id;
+            this.Employee = employee;
+            this.Department = department;
+        }
+
+        public Worker()
+        {
+
+        }
     }
 }
