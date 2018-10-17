@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Controls.Primitives;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace VMatveevLesson5
 {
@@ -20,46 +9,48 @@ namespace VMatveevLesson5
     /// </summary>
     public partial class EditEmployee : Window
     {
-        private MainWindow parent;
-        List<Employee> employees;
-        List<Department> departments;
+        MainWindow parent;
+        bool editFlag = false;
+        int itemId;
+        
 
         public EditEmployee(MainWindow mainForm)
         {
             parent = mainForm;
-
             InitializeComponent();
-
-            EmployeeComboBox.ItemsSource = parent.organizattion.eList.employeeList;
-            DepartamentComboBox.ItemsSource = parent.organizattion.dList.departmentList;
-
         }
 
-        public EditEmployee(MainWindow mainForm, Worker item)
+        public EditEmployee(MainWindow mainForm, List<Employee> employeeList, List<Department> departmentList)
         {
             parent = mainForm;
-            employees = new List<Employee>();
-            departments = new List<Department>();
-            employees.Add(item.Employee);
-            departments = parent.organizattion.dList.departmentList;
-
             InitializeComponent();
-            
 
-            EmployeeComboBox.ItemsSource = employees;
-            EmployeeComboBox.SelectedIndex = 0;
-            DepartamentComboBox.ItemsSource = departments;
+            EmployeeComboBox.ItemsSource = employeeList;
+            DepartamentComboBox.ItemsSource = departmentList;
+            editFlag = false;
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        public EditEmployee(MainWindow mainForm, Worker item, List<Employee> employeeList, List<Department> departmentList)
+        {
+            parent = mainForm;
+            InitializeComponent();
+
+            EmployeeComboBox.ItemsSource = employeeList;
+            DepartamentComboBox.ItemsSource = departmentList;
+            EmployeeComboBox.SelectedItem = item.Employee;
+            itemId = item.Id;
+            editFlag = true;
+        }
+
+        public void EditItem()
         {
             Employee tmpEmp = (Employee)EmployeeComboBox.SelectedValue;
             Department tmpDep = (Department)DepartamentComboBox.SelectedValue;
 
-            if(tmpEmp != null && tmpDep != null)
+            if (tmpEmp != null && tmpDep != null)
             {
-                var result = from f
-             in parent.workersList
+                var result = from f 
+                             in parent.workersList
                              where f.Employee.UUID == tmpEmp.UUID
                              select f;
 
@@ -67,12 +58,39 @@ namespace VMatveevLesson5
                 {
                     a.Department = tmpDep;
                 }
-
+                SQLer.UpdateWorkers(itemId, tmpEmp.UUID, tmpDep.UUID);
+                parent.ResetWorkersList();
                 parent.ListViewTotal.Items.Refresh();
             }
             else
                 MessageBox.Show("Employee or departament can't be null!", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
 
+            this.Close();
+        }
+
+        public void AddItem()
+        {
+            Employee tmpEmp = (Employee)EmployeeComboBox.SelectedValue;
+            Department tmpDep = (Department)DepartamentComboBox.SelectedValue;
+
+            if (tmpEmp != null && tmpDep != null)
+            {
+                SQLer.InserntWorkers(tmpEmp.UUID, tmpDep.UUID);
+                parent.ResetWorkersList();
+                parent.ListViewTotal.Items.Refresh();
+            }
+            else
+                MessageBox.Show("Employee or departament can't be null!", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            this.Close();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (editFlag == true)
+                EditItem();
+            else
+                AddItem();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
