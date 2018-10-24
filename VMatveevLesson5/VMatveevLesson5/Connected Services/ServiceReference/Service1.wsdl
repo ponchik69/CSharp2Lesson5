@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:57298/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:57298/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:57298/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFApp" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_connectMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:connectMessage" />
+  </wsdl:message>
+  <wsdl:message name="IService1_connectMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:connectMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getEmployeesCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeesCount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getEmployeesCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeesCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDepartaments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartaments" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDepartaments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartamentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDepartamentsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartamentsCount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDepartamentsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartamentsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDepartament_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartament" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDepartament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDepartamentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getWorkers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWorkers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getWorkers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWorkersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="connectMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/connectMessage" message="tns:IService1_connectMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/connectMessageResponse" message="tns:IService1_connectMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getEmployees" message="tns:IService1_getEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getEmployeesResponse" message="tns:IService1_getEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeesCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getEmployeesCount" message="tns:IService1_getEmployeesCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getEmployeesCountResponse" message="tns:IService1_getEmployeesCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getEmployee" message="tns:IService1_getEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getEmployeeResponse" message="tns:IService1_getEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepartaments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getDepartaments" message="tns:IService1_getDepartaments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getDepartamentsResponse" message="tns:IService1_getDepartaments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepartamentsCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getDepartamentsCount" message="tns:IService1_getDepartamentsCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getDepartamentsCountResponse" message="tns:IService1_getDepartamentsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepartament">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getDepartament" message="tns:IService1_getDepartament_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getDepartamentResponse" message="tns:IService1_getDepartament_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getWorkers" message="tns:IService1_getWorkers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getWorkersResponse" message="tns:IService1_getWorkers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="connectMessage">
+      <soap:operation soapAction="http://tempuri.org/IService1/connectMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployees">
+      <soap:operation soapAction="http://tempuri.org/IService1/getEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeesCount">
+      <soap:operation soapAction="http://tempuri.org/IService1/getEmployeesCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployee">
+      <soap:operation soapAction="http://tempuri.org/IService1/getEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartaments">
+      <soap:operation soapAction="http://tempuri.org/IService1/getDepartaments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartamentsCount">
+      <soap:operation soapAction="http://tempuri.org/IService1/getDepartamentsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepartament">
+      <soap:operation soapAction="http://tempuri.org/IService1/getDepartament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkers">
+      <soap:operation soapAction="http://tempuri.org/IService1/getWorkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:57298/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

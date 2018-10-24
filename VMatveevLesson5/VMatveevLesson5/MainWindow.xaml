@@ -19,8 +19,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="AddRecord" Content="AddRecord" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="90" Click="AddItem_Click"/>
+        <!--<Button x:Name="AddRecord" Content="AddRecord" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="90" Click="AddItem_Click"/>
         <Button x:Name="EditRecord" Content="EditRecod" HorizontalAlignment="Left" Margin="117,375,0,0" VerticalAlignment="Top" Width="90" Click="EditEmployee_Click"/>
-        <Button x:Name="RemoveRecord" Content="RemoveRecord" HorizontalAlignment="Left" Margin="224,375,0,0" VerticalAlignment="Top" Width="90" Click="RemoveEmployee_Click"/>
+        <Button x:Name="RemoveRecord" Content="RemoveRecord" HorizontalAlignment="Left" Margin="224,375,0,0" VerticalAlignment="Top" Width="90" Click="RemoveEmployee_Click"/>!-->
+        <Button x:Name="GetFromBase" Content="GetFromBase" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="90" Click="GetFromBase_Click"/>
+        <Button x:Name="GetFromWCF" Content="GetFromWCF" HorizontalAlignment="Left" Margin="117,375,0,0" VerticalAlignment="Top" Width="90" Click="GetFromWCF_Click"/>
     </Grid>
 </Window>
